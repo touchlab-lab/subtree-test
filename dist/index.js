@@ -8375,7 +8375,7 @@ async function run() {
         core.debug(`branchName: ${branchName}`);
         const git = (0, simple_git_1.default)();
         //git subtree push --prefix subtreeDirectory https://github.com/newfivefour/vimrc.git master
-        await git.raw("subtree", "push", "--prefix", "kmp", "kmp", "testbranch");
+        await git.raw("subtree", "push", "--prefix", "kmp", "https://github.com/kpgalligan/SharedKotlin.git", "testbranch");
     }
     catch (error) {
         // Fail the workflow run if an error occurs
