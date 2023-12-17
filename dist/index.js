@@ -8365,17 +8365,11 @@ const simple_git_1 = __importDefault(__nccwpck_require__(9103));
  */
 async function run() {
     try {
-        const commitMessage = core.getInput('commitMessage');
-        const tagMessage = core.getInput('tagMessage');
-        const tagVersion = core.getInput('tagVersion');
-        const branchName = core.getInput('branchName');
-        core.debug(`commitMessage: ${commitMessage}`);
-        core.debug(`tagMessage: ${tagMessage}`);
-        core.debug(`tagVersion: ${tagVersion}`);
-        core.debug(`branchName: ${branchName}`);
+        const username = core.getInput('username');
+        const pat = core.getInput('pat');
         const git = (0, simple_git_1.default)();
         //git subtree push --prefix subtreeDirectory https://github.com/newfivefour/vimrc.git master
-        await git.raw("subtree", "push", "--prefix", "kmp", "https://github.com/kpgalligan/SharedKotlin.git", "testbranch");
+        await git.raw("subtree", "push", "--prefix", "kmp", `https://${username}:${pat}@github.com/kpgalligan/SharedKotlin.git`, "testbranch");
     }
     catch (error) {
         // Fail the workflow run if an error occurs
