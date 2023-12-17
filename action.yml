@@ -7,6 +7,14 @@ branding:
   icon: 'heart'
   color: 'red'
 
+inputs:
+  username:
+    description: 'Github Username'
+    required: true
+  pat:
+    description: 'Github PAT'
+    required: true
+
 runs:
   using: node20
   main: dist/index.js

@@ -7,22 +7,13 @@ import simpleGit from "simple-git";
  */
 export async function run(): Promise<void> {
   try {
-    const commitMessage: string = core.getInput('commitMessage')
-    const tagMessage: string = core.getInput('tagMessage')
-    const tagVersion: string = core.getInput('tagVersion')
-    const branchName: string = core.getInput('branchName')
-
-    core.debug(`commitMessage: ${commitMessage}`)
-    core.debug(`tagMessage: ${tagMessage}`)
-    core.debug(`tagVersion: ${tagVersion}`)
-    core.debug(`branchName: ${branchName}`)
-
+    const username: string = core.getInput('username')
+    const pat: string = core.getInput('pat')
     const git = simpleGit();
-
 
 //git subtree push --prefix subtreeDirectory https://github.com/newfivefour/vimrc.git master
 
-    await git.raw("subtree", "push", "--prefix", "kmp", "https://github.com/kpgalligan/SharedKotlin.git", "testbranch")
+    await git.raw("subtree", "push", "--prefix", "kmp", `https://${username}:${pat}@github.com/kpgalligan/SharedKotlin.git`, "testbranch")
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
