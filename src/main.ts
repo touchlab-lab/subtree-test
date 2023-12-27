@@ -11,7 +11,7 @@ export async function run(): Promise<void> {
 
 //git subtree push --prefix subtreeDirectory https://github.com/newfivefour/vimrc.git master
 
-    await git.raw("subtree", "push", "--prefix", "kmp", `git@github.com:kpgalligan/SharedKotlin.git`, "anotherbranch2")
+    await git.raw("subtree", "push", "--prefix", "kmp", `git@github.com:kpgalligan/SharedKotlin.git`, "wownoteasy")
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)
